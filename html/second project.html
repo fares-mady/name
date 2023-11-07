@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>css</title>
+    <!-- external style -->
+    <link rel="stylesheet" href="css/master.css">
+<!-- internal style  -->
+<style></style>
+  </head>
+
+  <body>
+    <p class="p1">this is a paragraph</p>
+    <p id="p1">this is a paragraph</p>
+    <p >this is a paragraph</p>
+  <form method="post">
+    <label>First name:</label>
+    <input type="text" id="first" onkeyup="validate();">
+    <div id="errfirst" style="color:red ;"></div><br>
+
+    <label>Last name:</label>
+    <input type="text" id="last" onkeyup="validate();">
+    <div id="errlast" style="color:red;"></div><br>
+
+    <label>Email:</label>
+    <input type="email" id="email">
+    <div style="color:red;"></div><br>
+
+    <label>Password:</label>
+    <input type="password" id="password" onkeyup="passvalidate();">
+    <div id="errpass" style="color:red;"></div><br>
+
+    <label>Confirm Password:</label>
+    <input type="password" id="cpassword" onkeyup="passvalidate();">
+    <div id="errcpass" style="color:red;"></div><br>
+
+    <label>User ID:</label>
+    <input type="number" id="uid" onkeyup="validate();">
+    <div id="erruid" style="color:red;"></div><br>
+
+<input type="button" id="create" value="create" onclick="validate();,passvalidate();">
+<div id="errfinal" style="color:red;"></div><br>
+  </form>
+  <script>
+  var name=prompt("what is your name ?");
+  var age =prompt("what is your age ?");
+  if (age>18) {
+    alert("hi,"+name+"your age is old enough to vote");
+  } else {
+    alert("hi,"+name+"your age is not old enough to vote");
+  }
+
+    function validate(){
+      var f = document.getElementById("first").value;
+      var l=document.getElementById("last").value;
+      var num=document.getElementById("uid").value;
+
+      if (!isNaN(f)) {
+        document.getElementById("errfirst").innerHTML="only characters are allowed";
+
+      }else {
+        document.getElementById("errfirst").innerHTML=" ";
+      }
+      if (l=="" && !isNaN(l)) {
+        document.getElementById("errlast").innerHTML="please enter your last name in characters";
+      } else {
+        document.getElementById("errlast").innerHTML=" ";
+      }
+      if (num.length <5) {
+        document.getElementById("erruid").innerHTML="please enter at least five numbers";
+
+      } else {
+        document.getElementById("erruid").innerHTML=" ";
+      }
+    }
+    function passvalidate(){
+var pass=document.getElementById("password").value;
+var cpass=document.getElementById("cpassword").value;
+      if (pass<5) {
+        document.getElementById("errpass").innerHTML="please enter password at least 5 numbers";
+      } else {
+        document.getElementById("errpass").innerHTML=" ";
+      }
+      if (pass==cpass) {
+        document.getElementById("errcpass").innerHTML=" ";
+
+      } else {
+        document.getElementById("errcpass").innerHTML="the two password are not identical";
+      }
+
+      }
+
+
+
+
+
+  </script>
+  </body>
+</html>
